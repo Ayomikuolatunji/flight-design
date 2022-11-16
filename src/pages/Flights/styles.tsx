@@ -1,13 +1,7 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  main: {
-    display: "block",
-    maxWidth: "80%",
-    height: "50vh",
-    margin: "auto",
-  },
-  content: {
+  nameTitle: {
     textAlign: "center",
     display: "flex",
     justifyContent: "center",

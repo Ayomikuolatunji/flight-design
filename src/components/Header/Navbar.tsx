@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppsIcon from "@mui/icons-material/Apps";
 
+import googleIcon from "../../assets/googlelogo_clr_74x24px.svg";
 import profileImg from "../../assets/profile.jpeg";
 import useStyles from "./styles";
 
@@ -22,12 +23,12 @@ export default function NavBar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 1 }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Google
+            <img src={googleIcon} alt="googleIcon" />
           </Typography>
           <Box className={classes.rightContent}>
             <IconButton sx={{ mr: 2 }}>
