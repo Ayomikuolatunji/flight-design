@@ -3,35 +3,9 @@ import React from "react";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import destinationImg from "../../assets/destination.jpeg";
 import staticMap from "../../assets/staticmap.png";
+import { destinations } from "../../helpers";
 
 export default function MapScreen() {
-  const data = [
-    {
-      title: "Toronto",
-      date: "Dec 1-7",
-      time: "30min",
-      price: "CA$261",
-    },
-    {
-      title: "Toronto",
-      date: "Dec 1-7",
-      time: "30min",
-      price: "CA$261",
-    },
-    {
-      title: "Toronto",
-      date: "Dec 1-7",
-      time: "30min",
-      price: "CA$261",
-    },
-    {
-      title: "Toronto",
-      date: "Dec 1-7",
-      time: "30min",
-      price: "CA$261",
-    },
-  ];
-
   return (
     <Box className="w-[90%] sm:w-[50%] mx-auto mt-4">
       <Box className="w-full">
@@ -68,11 +42,11 @@ export default function MapScreen() {
             <img
               src={staticMap}
               alt="staticMap"
-              className="rounded-3xl   w-full"
+              className="rounded-3xl w-full max-w-full"
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            {data.map((item, index) => {
+            {destinations.map((item, index) => {
               return (
                 <Box className="border-2 rounded-[25px] flex mt-4">
                   <img
@@ -80,13 +54,16 @@ export default function MapScreen() {
                     alt={item.title}
                     className="rounded-l-3xl max-w-full"
                   />
-                  <div className="p-2">
+                  <div className="p-2 relative">
                     <h1 className="pb-1">{item.title}</h1>
                     <p className="pb-1">{item.date}</p>
                     <p className="text-[#5e6266]">
                       <StarBorderIcon className="border-[1px] border-red-700 text-red-500 rounded-full" />
                       <span className="ml-2">Non stop {item.time}</span>
                     </p>
+                    <span className="price absolute bottom-3 text-black font-bold right-0">
+                      {item.price}
+                    </span>
                   </div>
                 </Box>
               );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+// import Footer from "./components/Footer/Footer";
 import Flight from "./pages/Flights";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <Route path="/flight" element={<Flight />} />
         <Route path="/" element={<Navigate replace to="/flight" />} />
       </Routes>
+      {/* <Footer/> */}
     </>
   );
 }
