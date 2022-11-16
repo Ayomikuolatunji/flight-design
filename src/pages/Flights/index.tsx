@@ -1,18 +1,26 @@
 import { NavBar } from "../../components";
 import { useAppSelector } from "../../redux/hooks";
-import DestinalModalPage from "./DestinalModalPage";
+import DestinationModalPage from "./DestinationModalPage";
 import FlightHero from "./FlightHero";
 import MapScreen from "./MapScreen";
+import WhereToModalPage from "./WhereToModalPage";
 
 export default function Flight() {
-  const { chooseLocation } = useAppSelector((state) => state.locationStore);
+  const {
+    chooseLocationCurrent,
+    chooseLocationWhereTo,
+    selectedWhereToLocation,
+  } = useAppSelector((state) => state.locationStore);
+
+  console.log(selectedWhereToLocation);
 
   return (
     <div>
       <NavBar />
       <FlightHero />
       <MapScreen />
-      {chooseLocation && <DestinalModalPage />}
+      {chooseLocationCurrent && <DestinationModalPage />}
+      {chooseLocationWhereTo && <WhereToModalPage />}
     </div>
   );
 }

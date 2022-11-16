@@ -13,9 +13,15 @@ interface Props {
   options: Array<string>;
   Icon?: any;
   name: string | number;
+  onSelect?: (value: string) => void;
 }
 
-export default function DrodownWithIcon({ options, Icon, name }: Props) {
+export default function DrodownWithIcon({
+  options,
+  Icon,
+  name,
+  onSelect,
+}: Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const open = Boolean(anchorEl);
@@ -29,6 +35,7 @@ export default function DrodownWithIcon({ options, Icon, name }: Props) {
   ) => {
     setSelectedIndex(index);
     setAnchorEl(null);
+    onSelect(options[index]);
   };
 
   const handleClose = () => {
@@ -51,7 +58,9 @@ export default function DrodownWithIcon({ options, Icon, name }: Props) {
               <Icon />
             </IconButton>
           )}
-          <span className="text-gray-700 sm:text-xl text-[12px]">{name}</span>
+          <span className="text-gray-700 sm:text-xl text-[12px]">
+            {options[selectedIndex]}
+          </span>
           <span>
             {open ? (
               <IconButton>

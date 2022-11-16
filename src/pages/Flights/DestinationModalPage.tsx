@@ -8,9 +8,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddIcon from "@mui/icons-material/Add";
 import { useAppDispatch } from "../../redux/hooks";
-import { setChooseLocation } from "../../redux/features/bookFlightSlice";
+import { setChooseCurrenLocation } from "../../redux/features/bookFlightSlice";
 
-export default function DestinalModalPage() {
+export default function DestinationModalPage() {
   const dispatch = useAppDispatch();
 
   return (
@@ -19,7 +19,7 @@ export default function DestinalModalPage() {
         <div className="flex items-center">
           <ArrowBackIcon
             onClick={() => {
-              dispatch(setChooseLocation());
+              dispatch(setChooseCurrenLocation("current"));
             }}
           />
           <span className="text ml-2">Nanaimo, Britis Columbia</span>

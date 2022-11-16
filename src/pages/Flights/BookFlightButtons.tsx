@@ -2,7 +2,10 @@ import React from "react";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import { useAppDispatch } from "../../redux/hooks";
-import { setChooseLocation } from "../../redux/features/bookFlightSlice";
+import {
+  setChooseCurrenLocation,
+  setchooseLocationWhereTo,
+} from "../../redux/features/bookFlightSlice";
 
 export default function BookFlightButtons() {
   const dispatch = useAppDispatch();
@@ -12,7 +15,7 @@ export default function BookFlightButtons() {
       <button
         className="flex mx-2 border-2 p-3 items-center w-[180px] relative"
         onClick={() => {
-          dispatch(setChooseLocation());
+          dispatch(setChooseCurrenLocation("current"));
         }}
       >
         <svg
@@ -30,7 +33,12 @@ export default function BookFlightButtons() {
       <span>
         <SwapHorizIcon />
       </span>
-      <button className="flex mx-2 border-2 p-3 items-center w-[180px]">
+      <button
+        className="flex mx-2 border-2 p-3 items-center w-[180px]"
+        onClick={() => {
+          dispatch(setchooseLocationWhereTo("where-to"));
+        }}
+      >
         <EditLocationIcon />
         <span className="text-[#5e6266] ml-3">Where to ?</span>
       </button>

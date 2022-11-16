@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
@@ -14,7 +14,11 @@ import BookFlightButtons from "./BookFlightButtons";
 export default function FlightHero() {
   const Tripsoptions = ["Round Trip", "One way", "Multi-city"];
   const economyOptions = ["Round Trip", "One way", "Multi-city"];
+  const [selctedTrip, setSelectedTrip] = useState("");
+
   const classes = useStyles();
+
+  console.log(selctedTrip);
   return (
     <Box className="sm:rounded-none rounded-b-[25px] rou h-[auto] pb-5 border-b-[2px] sm:border-none border-gray-400 relative block z-50">
       <Box className="sm:w-[90%] mx-auto">
@@ -41,6 +45,7 @@ export default function FlightHero() {
               options={Tripsoptions}
               Icon={SwapHorizIcon}
               name="Round Trip"
+              onSelect={setSelectedTrip}
             />
           </li>
           <li className="flex justify-start items-center">
